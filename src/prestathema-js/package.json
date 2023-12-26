@@ -1,0 +1,22 @@
+{
+  "name": "prestathema-js",
+  "version": "0.1.0",
+  "description": "The javascript parts of prestathema",
+  "type": "module",
+  "author": "ediathome <edi@ediathome.de>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  },
+  "dependencies": {
+    "@codemirror/lang-css": "^6.2.1",
+    "@codemirror/lang-javascript": "^6.2.1",
+    "codemirror": "^6.0.1"
+  }
+}
