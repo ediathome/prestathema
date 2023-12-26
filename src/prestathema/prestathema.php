@@ -81,8 +81,15 @@ class PrestaThema extends Module
 
     public function getContent()
     {
+      $json_request = json_decode(file_get_contents('php://input'), true);
+      if(is_array($json_request) && isset($json_request["content"])) {
+        $fp = fopen($this->custom_css_path, 'w');
+        fwrite($fp, $json_request['content']);
+        fclose($fp);
+        error_log("PrestaThema did write: " . print_r($json_request, true));
+      }
+
       $output = '';
-      $output .= "<h1>PrestaThema hey there!</h1>";
 
       $action_done = false;
       $action = Tools::getValue('PRESTATHEMA_ACTION', '');
@@ -97,13 +104,18 @@ class PrestaThema extends Module
       $this->context->smarty->assign('tpl_dir', dir($this->themes_path));
       $this->context->smarty->assign('theme_dir_entries', $theme_dir_entries);
       $this->context->smarty->assign('form_action_url', $this->admin_link());
+      $this->context->smarty->assign('custom_css_path', $this->custom_css_path);
       $this->context->smarty->assign('file_contents', $this->read_file($this->custom_css_path));
 
       if ($this->debug) {
           $output .= '<hr><code>'.print_r($_REQUEST, true).'</code>';
       }
 
-      $output .= $this->context->smarty->fetch($this->local_path.'views/templates/editor.tpl');
+      if(file_exists($this->custom_css_path)) {
+        $output .= $this->context->smarty->fetch($this->local_path.'views/templates/editor.tpl');
+      } else {
+        $output .= $this->context->smarty->fetch($this->local_path.'views/templates/error_file_not_found.tpl');
+      }
 
       return $output;
     }

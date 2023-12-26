@@ -1,6 +1,7 @@
 export default {
   root: ('./src'),
   build: {
+    minify: 'esbuild',
     lib: {
       entry: ('main.js'),
       name: "PrestathemaJsLibrary",

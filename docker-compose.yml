@@ -1,3 +1,4 @@
+# for docs see https://github.com/PrestaShop/prestashop-flashlight
 name: prestathema
 services:
   prestashop:
