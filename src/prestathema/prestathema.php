@@ -87,6 +87,10 @@ class PrestaThema extends Module
         fwrite($fp, $json_request['content']);
         fclose($fp);
         error_log("PrestaThema did write: " . print_r($json_request, true));
+
+        http_response_code(200);
+        header("Content-Type: application/json;");
+        exit();
       }
 
       $output = '';
@@ -102,7 +106,7 @@ class PrestaThema extends Module
 
       $this->context->smarty->assign('module_dir', $this->_path);
       $this->context->smarty->assign('tpl_dir', dir($this->themes_path));
-      $this->context->smarty->assign('theme_dir_entries', $theme_dir_entries);
+      $this->context->smarty->assign('dir_entries', $theme_dir_entries);
       $this->context->smarty->assign('form_action_url', $this->admin_link());
       $this->context->smarty->assign('custom_css_path', $this->custom_css_path);
       $this->context->smarty->assign('file_contents', $this->read_file($this->custom_css_path));
@@ -115,6 +119,7 @@ class PrestaThema extends Module
         $output .= $this->context->smarty->fetch($this->local_path.'views/templates/editor.tpl');
       } else {
         $output .= $this->context->smarty->fetch($this->local_path.'views/templates/error_file_not_found.tpl');
+                $output .= $this->context->smarty->fetch($this->local_path.'views/templates/filelist.tpl');
       }
 
       return $output;
