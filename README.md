@@ -1,5 +1,5 @@
 # PrestaThema
-A Prestashop module for quickly editing the current Prestashop theme
+Prestathema - a Prestashop plugin for quick theme hacking in the Prestashop backend.
 
 ## Development setup
 This project uses the prestashop-flashlight Docker setup. [Read more here](https://github.com/PrestaShop/prestashop-flashlight/tree/main/examples/develop-a-module)
