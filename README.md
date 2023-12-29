@@ -1,7 +1,7 @@
 # PrestaThema
 Prestathema - a Prestashop plugin for quick theme hacking in the Prestashop backend.
 
-![Prestathema Screenshot](https://github.com/ediathome/prestathema/blob/main/src/prestathema/docs/prestacollege_screenshot.png?raw=true)
+![Prestathema Screenshot](https://github.com/ediathome/prestathema/blob/main/src/prestathema/docs/prestathema_screenshot.png?raw=true)
 
 ## Development setup
 This project uses the prestashop-flashlight Docker setup. [Read more here](https://github.com/PrestaShop/prestashop-flashlight/tree/main/examples/develop-a-module)
