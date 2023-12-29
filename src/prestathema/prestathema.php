@@ -13,8 +13,6 @@ if (!defined('_PS_VERSION_')) {
     exit;
 }
 
-require_once dirname(__FILE__).'/classes/PrestaCollegeAutoUpgrader.php';
-
 class PrestaThema extends Module
 {
     protected $config_form = false;
