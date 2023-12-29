@@ -124,3 +124,4 @@ upload/
 bin/deploy
 .php_cs.cache
 Guardfile
+releases/
