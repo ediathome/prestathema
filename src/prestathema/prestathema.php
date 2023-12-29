@@ -175,6 +175,9 @@ class PrestaThema extends Module
               'cdir' => str_replace($this->presta_themes_path, '', $d->path).'/'.$entry
             ))
           );
+          if(is_dir($d->path.'/'.$entry)) {
+            $tmp['icon'] = 'folder';
+          }
           $rv[$entry] = $tmp;
         }
       }
