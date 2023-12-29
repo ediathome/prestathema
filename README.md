@@ -11,3 +11,9 @@ Entrypoints:
 * Backend: [localhost:8000/admin-dev](localhost:8000/admin-dev)
 * Backend-User: admin@prestashop.com
 * Backend-Password: prestashop
+
+## License & Copyright
+This project is licensed under the MIT license. Copyright (C) 2023 by Martin Kolb
+
+For code editing we use [Codemirror](https://github.com/codemirror/dev): Copyright (C) 2018 by Marijn Haverbeke <marijn@haverbeke.berlin>, Adrian
+Heine <mail@adrianheine.de>, and others
