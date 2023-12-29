@@ -120,6 +120,7 @@ class PrestaThema extends Module
       );
       $this->context->smarty->assign('form_action_url', $this->admin_link());
       $this->context->smarty->assign('custom_css_path', $this->custom_css_path);
+      $this->context->smarty->assign('display_editor', false);
 
       if ($this->debug) {
           $output .= '<hr><code>'.print_r($_REQUEST, true).'</code>';
@@ -127,16 +128,19 @@ class PrestaThema extends Module
 
       if(file_exists($this->custom_css_path)) {
         $this->context->smarty->assign('file_contents', $this->read_file($this->custom_css_path));
-        $output .= $this->context->smarty->fetch($this->templates_path.'/filelist.tpl');
-        $output .= $this->context->smarty->fetch($this->templates_path.'/editor.tpl');
+        $this->context->smarty->assign('display_editor', true);
+        # $output .= $this->context->smarty->fetch($this->templates_path.'/combined_editor.tpl');
+        // $output .= $this->context->smarty->fetch($this->templates_path.'/editor.tpl');
         
       } elseif(isset($this->custom_css_path)) {
         $output .= $this->context->smarty->fetch($this->templates_path.'/error_file_not_found.tpl');
-        $output .= $this->context->smarty->fetch($this->templates_path.'/filelist.tpl');
+        # $output .= $this->context->smarty->fetch($this->templates_path.'/filelist.tpl');
       } else {
-        $output .= $this->context->smarty->fetch($this->templates_path.'/filelist.tpl');
-      }
 
+        # $output .= $this->context->smarty->fetch($this->templates_path.'/filelist.tpl');
+      }
+      $output .= $this->context->smarty->fetch($this->templates_path.'/combined_editor.tpl');
+      
       return $output;
     }
 

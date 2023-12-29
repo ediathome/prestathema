@@ -18059,9 +18059,9 @@ class vy {
   }
 }
 document.addEventListener("DOMContentLoaded", function() {
-  let n = document.getElementById("prestathema-source").innerText;
-  n != null && new vy(
-    document.getElementById("prestathema-editor"),
+  let n = document.getElementById("prestathema-source").innerText, e = document.getElementById("prestathema-editor");
+  n != null && e.dataset.displayEditor == 1 && new vy(
+    e,
     n
   );
 }, !1);

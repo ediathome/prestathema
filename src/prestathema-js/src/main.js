@@ -83,10 +83,11 @@ class PrestaThemaEditor {
 
 document.addEventListener('DOMContentLoaded', function() {
   let initialSource = document.getElementById("prestathema-source").innerText;
+  let editorPanel = document.getElementById("prestathema-editor");
 
-  if (initialSource != undefined) {
+  if (initialSource != undefined && editorPanel.dataset.displayEditor==1 ) {
     let myView = new PrestaThemaEditor(
-      document.getElementById("prestathema-editor"), 
+      editorPanel, 
       initialSource
     );
   }
