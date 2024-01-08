@@ -54,7 +54,7 @@ class PrestaThema extends Module
           }
         }
 
-        $this->ps_versions_compliancy = array('min' => '8.1.2', 'max' => _PS_VERSION_);
+        $this->ps_versions_compliancy = array('min' => '1.7.7.0', 'max' => _PS_VERSION_);
     }
 
     public function auto_upgrader()
