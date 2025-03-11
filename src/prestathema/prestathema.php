@@ -24,7 +24,7 @@ class PrestaThema extends Module
         $this->name = 'prestathema';
         $this->tab = 'others';
 
-        $this->version = "0.1.0";
+        $this->version = "0.1.2";
         $this->author = 'Martin Kolb';
         $this->need_instance = 1;
 

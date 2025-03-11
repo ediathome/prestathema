@@ -27,6 +27,9 @@ This release brings you:
 * downloading database and file snapshots from custom urls
 * German localization
 
+## v0.1.2 Bug-Fix
+* fix use of deprecated hook "header" by "displayHook"
+
 ## v0.1.0 Initial Release
 released on 24 Sep 2018
 

@@ -2,7 +2,7 @@
 <module>
     <name>prestathema</name>
     <displayName><![CDATA[PrestaThema]]></displayName>
-    <version><![CDATA[0.1.0]]></version>
+    <version><![CDATA[0.1.2]]></version>
     <description><![CDATA[A module for quickly styling Prestashop themes from the Backend]]></description>
     <author><![CDATA[Martin Kolb]]></author>
     <tab><![CDATA[others]]></tab>
