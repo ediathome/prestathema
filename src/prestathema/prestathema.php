@@ -37,11 +37,11 @@ class PrestaThema extends Module
 
         $this->displayName = $this->l('PrestaThema');
         $this->description = $this->l('A module for quickly styling Prestashop themes from the Backend');
-        
+
         $this->templates_path = $this->local_path.'views/templates';
-  
+
         $this->presta_themes_path = dirname(dirname($this->local_path)).'/themes';
-        # set the default path 
+        # set the default path
         $this->current_dir_path = $this->presta_themes_path;
 
         if(isset($_GET['cdir'])) {
@@ -74,7 +74,7 @@ class PrestaThema extends Module
         Configuration::updateValue('PRESTATHEMA_LIVE_MODE', false);
 
         return parent::install() &&
-            $this->registerHook('header') &&
+            $this->registerHook('displayHeader') &&
             $this->registerHook('displayBackOfficeHeader');
     }
 
@@ -113,7 +113,7 @@ class PrestaThema extends Module
       $this->context->smarty->assign('current_dir_path', $this->current_dir_path);
       $this->context->smarty->assign('dir_entries', $this->file_entries($this->current_dir_path));
       $this->context->smarty->assign(
-        'dir_entries_sorted', 
+        'dir_entries_sorted',
         $dir_entries_sorted
       );
       $this->context->smarty->assign('form_action_url', $this->admin_link());
@@ -129,7 +129,7 @@ class PrestaThema extends Module
         $this->context->smarty->assign('display_editor', true);
         # $output .= $this->context->smarty->fetch($this->templates_path.'/combined_editor.tpl');
         // $output .= $this->context->smarty->fetch($this->templates_path.'/editor.tpl');
-        
+
       } elseif(isset($this->custom_css_path)) {
         $output .= $this->context->smarty->fetch($this->templates_path.'/error_file_not_found.tpl');
         # $output .= $this->context->smarty->fetch($this->templates_path.'/filelist.tpl');
@@ -138,7 +138,7 @@ class PrestaThema extends Module
         # $output .= $this->context->smarty->fetch($this->templates_path.'/filelist.tpl');
       }
       $output .= $this->context->smarty->fetch($this->templates_path.'/combined_editor.tpl');
-      
+
       return $output;
     }
 
@@ -162,7 +162,7 @@ class PrestaThema extends Module
           ))
         );
       }
-      
+
       while (false !== ($entry = $d->read())) {
         if(!str_starts_with($entry, '.')) {
           $tmp = array(
